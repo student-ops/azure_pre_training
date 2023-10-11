@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the list of resource group names
-rg_names=$(az group list --query "[?name != 'azureCliTest'].name" -o tsv)
+rg_names=$(az group list --query "[?!(name == 'blobTutorialGroup' || name == 'sitecore-second_group')].name" -o tsv)
 
 # Iterate through the list of resource group names
 for rg_name in $rg_names
